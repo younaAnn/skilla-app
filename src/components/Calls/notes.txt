@@ -1,0 +1,56 @@
+// https://codesandbox.io/s/nn1y6q1rv4
+// https://codesandbox.io/s/7k0bfo
+    
+    {
+      title: "Оценка",
+      dataIndex: "rate",
+      key: "rate",
+      style: { textAlight: "center" },
+      render: (rate: string) => {
+        if (rate === "needToRecognize") {
+          return (
+            <Button type="primary" ghost>
+              Распознать
+            </Button>
+          );
+        }
+        if (rate === "noScript") {
+          return <Text type="danger">Скрипт не распознан</Text>;
+        }
+        if (rate === "5") {
+          return <Tag color="success">Отлично</Tag>;
+        }
+        if (rate === "4") {
+          return <Tag color="processing">Хорошо</Tag>;
+        }
+        if (rate === "2") {
+          return <Tag color="error">Плохо</Tag>;
+        }
+        return;
+      },
+    },
+
+
+
+    {
+      title: "Информация о звонках",
+      render: (record: CallInfo) => (
+        <React.Fragment>
+          Тип: {record.type}
+          <br />
+          Время: {record.time}
+          <br />
+          Сотрудник: {record.employee}
+          <br />
+          Звонок: {record.call}
+          <br />
+          Источник: {record.source}
+          <br />
+          Оценка: {record.rate}
+          <br />
+          Длительность: {record.duration}
+          <br />
+        </React.Fragment>
+      ),
+      responsive: [xs],
+    },

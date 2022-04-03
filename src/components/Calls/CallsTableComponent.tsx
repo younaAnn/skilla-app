@@ -56,6 +56,8 @@ export const CallsTableComponent: React.FC = () => {
       title: "Время",
       dataIndex: "date",
       key: "time",
+      sorter: (a: CallInfo, b: CallInfo) =>
+        Date.parse(a.date) - Date.parse(b.date),
       render: (date: string) => {
         const parsedDate = new Date(date);
         return parsedDate
@@ -82,12 +84,15 @@ export const CallsTableComponent: React.FC = () => {
       title: "Источник",
       dataIndex: "contact_company",
       key: "source",
+      sorter: (a: CallInfo, b: CallInfo) =>
+        a.contact_company.localeCompare(b.contact_company),
     },
     {
       title: "Длительность",
       dataIndex: "time",
       key: "duration",
       align: "right" as "right",
+      sorter: (a: CallInfo, b: CallInfo) => +(a.time || 0) - +(b.time || 0),
       render: (time: string) => {
         const seconds = +time % 60;
         const minutes = Math.floor(+time / 60);

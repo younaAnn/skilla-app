@@ -13,7 +13,7 @@ export const DepartmentInfoDropdown: React.FC = () => {
   );
 
   return (
-    <Dropdown overlay={menu}>
+    <Dropdown overlay={menu} trigger={["click"]}>
       <Button type="text" style={{ minHeight: "100%" }}>
         ИП Сидорова Александра Ивановна
         <DownOutlined />

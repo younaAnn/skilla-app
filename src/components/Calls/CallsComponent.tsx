@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "antd/dist/antd.css";
-import "./index.css";
 import { CallsHeaderComponent } from "./CallsHeader/CallsHeaderComponent";
-import { CallsTableComponent } from "./CallsTableComponent";
+import { CallsTableComponent } from "./CallsTable/CallsTableComponent";
 import { useDispatch } from "react-redux";
 import { callsAction } from "../../actions/CallsActions";
 import moment, { Moment } from "moment";

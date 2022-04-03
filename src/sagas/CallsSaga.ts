@@ -11,9 +11,12 @@ function* loadSagaWrapper() {
   yield takeLeading(callsAction.callsListLoad.request, loadSaga);
 }
 
-function* loadSaga() {
+function* loadSaga(
+  action: ReturnType<typeof callsAction.callsListLoad.request>
+) {
   try {
-    const callsList: CallInfo[] = yield call(CallsService.GetList);
+    const date = action.payload.date;
+    const callsList: CallInfo[] = yield call(CallsService.GetList, date);
     yield put(callsAction.callsListLoad.success(callsList));
   } catch (e) {
     yield put(callsAction.callsListLoad.failure());

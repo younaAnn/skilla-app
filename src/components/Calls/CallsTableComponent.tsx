@@ -59,7 +59,9 @@ export const CallsTableComponent: React.FC = () => {
       render: (date: string) => {
         const parsedDate = new Date(date);
         return parsedDate
-          ? `${parsedDate.getHours()}:${parsedDate.getMinutes()}`
+          ? `${getTwoSymbolsNumber(
+              parsedDate.getHours()
+            )}:${getTwoSymbolsNumber(parsedDate.getMinutes())}`
           : "";
       },
     },

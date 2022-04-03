@@ -1,3 +1,7 @@
 .ant-table-pagination.ant-pagination {
   margin: 16px 16px;
 }
+.ant-table-thead > tr > th {
+  background: white;
+  color: rgba(0, 0, 0, 0.45);
+}

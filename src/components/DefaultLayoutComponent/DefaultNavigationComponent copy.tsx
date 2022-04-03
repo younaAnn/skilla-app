@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from "react";
 import "./index.css";
 import "antd/dist/antd.css";
-import { Layout, Menu, Button } from "antd";
+import { Layout, Menu, Button, Image } from "antd";
+import { Link } from "react-router-dom";
 import {
   FileTextOutlined,
   MailOutlined,
@@ -26,6 +27,8 @@ export const DefaultNavigationComponent: React.FC = () => {
     setIsCollapsed(collapsed);
   }, []);
 
+  const menuStyle = { backgroundColor: "#091336" };
+
   const menuItemStyle = {
     paddingLeft: "15px",
   };
@@ -41,9 +44,12 @@ export const DefaultNavigationComponent: React.FC = () => {
       collapsed={isCollapsed}
       onCollapse={onCollapse}
       breakpoint={sm}
+      style={menuStyle}
     >
-      <div className="logo" />
-      <Menu theme="dark" defaultSelectedKeys={["4"]} mode="inline">
+      <div className="logo">
+        <Image src="/skilla-logo.png" preview={false} />
+      </div>
+      <Menu theme="dark" selectedKeys={["4"]} mode="inline" style={menuStyle}>
         <Menu.Item key="1" icon={<StockOutlined />} style={menuItemStyle}>
           Итоги
         </Menu.Item>
@@ -55,6 +61,7 @@ export const DefaultNavigationComponent: React.FC = () => {
         </Menu.Item>
         <Menu.Item key="4" icon={<PhoneOutlined />} style={menuItemStyle}>
           Звонки
+          <Link to="/calls" />
         </Menu.Item>
         <Menu.Item key="5" icon={<TeamOutlined />} style={menuItemStyle}>
           Контрагенты
@@ -83,7 +90,7 @@ export const DefaultNavigationComponent: React.FC = () => {
         <Menu.Item key="12" style={menuItemStyle}>
           <Button type="primary" size={"large"} style={buttonStyle}>
             Оплата
-            <ExclamationCircleFilled />
+            <ExclamationCircleFilled color="red" />
           </Button>
         </Menu.Item>
       </Menu>

@@ -6,7 +6,7 @@ export const callsAction = {
     "[CallsActionType] CALLS_LOAD_REQUEST",
     "[CallsActionType] CALLS_LOAD_SUCCESS",
     "[CallsActionType] CALLS_LOAD_FAILURE"
-  )<undefined, CallInfo[], undefined>(),
+  )<{ date?: string }, CallInfo[], undefined>(),
 };
 
 export type AllCallsActions = ActionType<typeof callsAction>;

@@ -18,14 +18,6 @@ export const CallsTableComponent: React.FC = () => {
   const { callsList } = useSelector(dataSelector);
 
   return (
-    <Content style={{ margin: "4% 7%" }}>
-      <div className="site-layout-background">
-        <Table
-          columns={CallsTableColumns}
-          dataSource={callsList}
-          rowKey={"id"}
-        />
-      </div>
-    </Content>
+    <Table columns={CallsTableColumns} dataSource={callsList} rowKey={"id"} />
   );
 };

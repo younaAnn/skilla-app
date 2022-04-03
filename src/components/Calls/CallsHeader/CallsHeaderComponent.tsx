@@ -1,11 +1,12 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Layout, Row, Col, DatePicker } from "antd";
+import { Layout, Row, Col, DatePicker, Button } from "antd";
 import { UserInfoDropdown } from "./UserInfoDropdown";
 import { CallsStatisticComponent } from "./CallsStatisticComponent";
 import { DepartmentInfoDropdown } from "./DepartmentInfoDropdown";
 import moment, { Moment } from "moment";
+import { SearchOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export const CallsHeaderComponent: React.FC<Props> = (props) => {
+  //TODO move icon color to styles
   const { selectedDate, onChange } = props;
 
   return (
@@ -38,10 +40,19 @@ export const CallsHeaderComponent: React.FC<Props> = (props) => {
         </Col>
         <Col span={8}>
           <Row>
-            <div style={{ marginLeft: "auto" }}>
-              <DepartmentInfoDropdown />
-              <UserInfoDropdown />
-            </div>
+            <Col span={6} style={{ textAlign: "center" }}>
+              <Button type="text" style={{ minHeight: "100%" }}>
+                <SearchOutlined style={{ color: "rgba(0, 0, 0, 0.45)" }} />
+              </Button>
+            </Col>
+            <Col span={18}>
+              <Row>
+                <div style={{ marginLeft: "auto" }}>
+                  <DepartmentInfoDropdown />
+                  <UserInfoDropdown />
+                </div>
+              </Row>
+            </Col>
           </Row>
         </Col>
       </Row>

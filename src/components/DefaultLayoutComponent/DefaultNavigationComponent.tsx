@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import "./index.css";
 import "antd/dist/antd.css";
-import { Layout, Menu, Button, Image } from "antd";
+import { Layout, Menu, Button, Image, Row } from "antd";
 import { Link } from "react-router-dom";
 import {
   FileTextOutlined,
@@ -27,16 +27,23 @@ export const DefaultNavigationComponent: React.FC = () => {
     setIsCollapsed(collapsed);
   }, []);
 
-  const menuStyle = { backgroundColor: "#091336" };
+  const menuStyle = { backgroundColor: "#091336" } as React.CSSProperties;
 
   const menuItemStyle = {
     paddingLeft: "15px",
-  };
+  } as React.CSSProperties;
 
   const buttonStyle = {
     minWidth: "100%",
     alignContent: "center",
-  };
+    fontSize: "13px",
+  } as React.CSSProperties;
+
+  const buttonIconStyle = {
+    color: "#ffffff7a",
+    fontSize: "large",
+    float: "right",
+  } as React.CSSProperties;
 
   return (
     <Sider
@@ -83,15 +90,19 @@ export const DefaultNavigationComponent: React.FC = () => {
         </Menu.Item>
 
         <Menu.Item key="11" style={menuItemStyle}>
-          <Button type="primary" size={"large"} style={buttonStyle}>
-            Добавить заказ <PlusCircleFilled />
-          </Button>
+          <Row>
+            <Button type="primary" size={"large"} style={buttonStyle}>
+              Добавить заказ <PlusCircleFilled style={buttonIconStyle} />
+            </Button>
+          </Row>
         </Menu.Item>
         <Menu.Item key="12" style={menuItemStyle}>
-          <Button type="primary" size={"large"} style={buttonStyle}>
-            Оплата
-            <ExclamationCircleFilled color="red" />
-          </Button>
+          <Row>
+            <Button type="primary" size={"large"} style={buttonStyle}>
+              Оплата
+              <ExclamationCircleFilled color="red" style={buttonIconStyle} />
+            </Button>
+          </Row>
         </Menu.Item>
       </Menu>
     </Sider>

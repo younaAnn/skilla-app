@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { CallsPage } from "../../pages/CallsPage";
-import { DefaultNavigationComponent } from "./DefaultNavigationComponent copy";
+import { DefaultNavigationComponent } from "./DefaultNavigationComponent";
 
 const { Footer } = Layout;
 

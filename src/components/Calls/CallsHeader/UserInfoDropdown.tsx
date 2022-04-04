@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Menu, Button, Avatar, Dropdown, Card, Divider } from "antd";
+import { Menu, Button, Avatar, Dropdown } from "antd";
 import {
   UserOutlined,
   PhoneOutlined,
@@ -11,6 +11,7 @@ import {
 
 export const UserInfoDropdown: React.FC = () => {
   // TODO Add styles to dropdown
+
   const userMenu = (
     <Menu style={{ minWidth: "400px", paddingLeft: "10px" }}>
       Упоров Кирилл

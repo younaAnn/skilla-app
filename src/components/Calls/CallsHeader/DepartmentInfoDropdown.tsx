@@ -1,10 +1,14 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Menu, Button, Dropdown } from "antd";
+import { Menu, Button, Dropdown, Grid } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+const { useBreakpoint } = Grid;
 
 export const DepartmentInfoDropdown: React.FC = () => {
+  const screens = useBreakpoint();
+  console.log(screens);
+
   const menu = (
     <Menu>
       <Menu.Item key="1">Первый вариант</Menu.Item>
@@ -15,7 +19,7 @@ export const DepartmentInfoDropdown: React.FC = () => {
   return (
     <Dropdown overlay={menu} trigger={["click"]}>
       <Button type="text" style={{ minHeight: "100%" }}>
-        ИП Сидорова Александра Ивановна
+        {screens.xxl ? "ИП Сидорова Александра Ивановна" : "Подразделение"}
         <DownOutlined />
       </Button>
     </Dropdown>
